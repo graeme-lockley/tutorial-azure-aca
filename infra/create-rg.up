@@ -1,0 +1,8 @@
+#!/bin/bash
+
+. "$( dirname "$0" )/env.sh"
+
+az group create \
+  --name "$RG_NAME" \
+  --location "$RG_LOCATION" \
+  --only-show-errors
