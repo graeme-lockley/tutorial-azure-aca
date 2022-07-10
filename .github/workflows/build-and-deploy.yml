@@ -1,0 +1,56 @@
+name: build-and-deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  lint-bash:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Lint bash scripts
+        run: ./scripts/lint-bash.sh
+
+  build-azure-infrastructure:
+    runs-on: ubuntu-latest
+    needs: [test-system]
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Set PRINCIPAL ID
+        run: |
+          PRINCIPAL_ID=`echo '${{ secrets.AZURE_CREDENTIALS }}' | jq -r '.clientId'`
+          echo "PRINCIPAL_ID=$PRINCIPAL_ID" >> $GITHUB_ENV
+
+      - name: Setup environment
+        run: ./scripts/configure-environment.sh
+
+      - name: Commit log
+        if: always()
+        run: |
+          cd ./infra/env
+          git add ./*.log
+          if ! git diff-index --quiet HEAD --; then
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git commit -m "build: update changelog log"
+            git push
+          fi
+
