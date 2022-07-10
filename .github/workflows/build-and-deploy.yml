@@ -23,7 +23,7 @@ jobs:
 
   build-azure-infrastructure:
     runs-on: ubuntu-latest
-    needs: [test-system]
+    needs: [lint-bash]
 
     steps:
       - name: Checkout source code
