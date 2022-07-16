@@ -7,3 +7,11 @@ export RG_LOCATION=westeurope
 
 export CA_ENVIRONMENT_NAME=tutACAEnv
 export CA_API_NAME=tutacaapi
+
+if ! az extension list | grep '"containerapp"' > /dev/null
+then
+    echo ".register containerapp extension"
+    az extension add \
+        --name containerapp \
+        --only-show-errors|| exit 1
+fi

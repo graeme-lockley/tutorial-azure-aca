@@ -2,16 +2,6 @@
 
 . "$( dirname "$0" )/env.sh"
 
-echo ".add extension"
-az extension add \
-    --name containerapp \
-    --upgrade \
-    --only-show-errors|| exit 1
-
-echo ".register operational insights provider"
-az provider register \
-    --namespace Microsoft.OperationalInsights || exit 1
-
 echo ".register Microsoft.App provider"
 az provider register \
     --namespace Microsoft.App || exit 1

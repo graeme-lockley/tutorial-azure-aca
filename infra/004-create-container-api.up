@@ -2,13 +2,6 @@
 
 . "$( dirname "$0" )/env.sh"
 
-echo ".add extension"
-az extension add \
-    --name containerapp \
-    --upgrade \
-    --only-show-errors|| exit 1
-
-echo ".create containerapp environment"
 az containerapp create \
   --name "$CA_API_NAME" \
   --resource-group "$RG_NAME" \
