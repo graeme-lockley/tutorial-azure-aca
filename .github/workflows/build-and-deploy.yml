@@ -85,7 +85,7 @@ jobs:
           fi
 
   nudge-api:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     needs: [build-azure-infrastructure]
 
     steps:
