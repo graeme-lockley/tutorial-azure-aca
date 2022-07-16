@@ -1,8 +1,8 @@
 import Koa from 'koa';
-import koaRouter from 'koa-router';
+import Router from 'koa-router';
 
 const app = new Koa();
-const router = koaRouter();
+const router = new Router();
 
 router.get('/hello', (ctx) => {
   ctx.body = 'Hello World';
