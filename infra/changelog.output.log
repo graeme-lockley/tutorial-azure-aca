@@ -1,0 +1,50 @@
+>>> start | 001-create-rg.up: Sat Jul 16 08:19:15 UTC 2022 |---------------------
+{
+  "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA",
+  "location": "westeurope",
+  "managedBy": null,
+  "name": "tutACA",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+>>> end   | 001-create-rg.up: Sat Jul 16 08:19:16 UTC 2022 |---------------------
+>>> start | 002-create-container-environment.up: Sat Jul 16 08:19:16 UTC 2022 |---------------------
+.add extension
+.register operational insights provider
+.register Microsoft.App provider
+.create containerapp environment
+/ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ..[K{
+  "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/managedEnvironments/tutACAEnv",
+  "location": "westeurope",
+  "name": "tutACAEnv",
+  "properties": {
+    "appLogsConfiguration": {
+      "destination": "log-analytics",
+      "logAnalyticsConfiguration": {
+        "customerId": "7e3cb2e1-690c-4f82-aa82-a78722aefe9d"
+      }
+    },
+    "defaultDomain": "yellowmeadow-0b70b5a3.westeurope.azurecontainerapps.io",
+    "provisioningState": "Waiting",
+    "staticIp": "20.93.234.208",
+    "zoneRedundant": false
+  },
+  "resourceGroup": "tutACA",
+  "systemData": {
+    "createdAt": "2022-07-16T08:20:18.1642158",
+    "createdBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "createdByType": "Application",
+    "lastModifiedAt": "2022-07-16T08:20:18.1642158",
+    "lastModifiedBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "lastModifiedByType": "Application"
+  },
+  "type": "Microsoft.App/managedEnvironments"
+}
+>>> end   | 002-create-container-environment.up: Sat Jul 16 08:21:22 UTC 2022 |---------------------
+>>> start | 003-create-container-api.up: Sat Jul 16 08:21:22 UTC 2022 |---------------------
+.add extension
+.create containerapp environment
+ERROR: The environment 'tutACAEnv' has not been provisioned successfully.
