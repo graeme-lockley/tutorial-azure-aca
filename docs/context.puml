@@ -1,0 +1,9 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(personUser, "User", "Arbitrary consumer")
+Container(containerAlias, "tutorial-azure-aca", "Technology", "Collection of rudimentary calculations")
+
+Rel(personUser, containerAlias, "calculation request")
+
+@enduml
