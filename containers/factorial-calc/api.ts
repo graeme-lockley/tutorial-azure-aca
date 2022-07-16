@@ -59,4 +59,4 @@ app.use(fourZeroFour);
 const port = 3000;
 
 console.log(`Server running on port ${port}`);
-app.listen(`localhost:${port}`);
+app.listen(`0.0.0.0:${port}`);

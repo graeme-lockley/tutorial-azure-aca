@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. "$( dirname "$0" )/env.sh"
+
+az containerapp create \
+  --name "$CA_FACTORIAL_NAME" \
+  --resource-group "$RG_NAME" \
+  --environment "$CA_ENVIRONMENT_NAME" \
+  --image graemel/tutorial-azure-aca-factorial-calc \
+  --target-port 3000 \
+  --only-show-errors
