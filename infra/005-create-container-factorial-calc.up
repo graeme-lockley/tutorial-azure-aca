@@ -8,4 +8,5 @@ az containerapp create \
   --environment "$CA_ENVIRONMENT_NAME" \
   --image graemel/tutorial-azure-aca-factorial-calc \
   --target-port 3000 \
+  --ingress 'external' \
   --only-show-errors
