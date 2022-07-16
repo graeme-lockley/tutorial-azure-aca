@@ -47,3 +47,5 @@
 >>> start | 004-create-container-api.up: Sat Jul 16 09:55:10 UTC 2022 |---------------------
 / Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..[K"tutacaapi.lemonhill-3718f5a2.westeurope.azurecontainerapps.io"
 >>> end   | 004-create-container-api.up: Sat Jul 16 09:55:46 UTC 2022 |---------------------
+>>> start | 005-create-container-factorial-calc.up: Sat Jul 16 13:39:17 UTC 2022 |---------------------
+ERROR: Usage error: must specify --ingress with --target-port
