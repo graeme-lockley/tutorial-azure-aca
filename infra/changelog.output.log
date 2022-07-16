@@ -52,3 +52,8 @@ ERROR: The environment 'tutACAEnv' has not been provisioned successfully.
 .add extension
 .create containerapp environment
 ERROR: The following field(s) are either invalid or missing. Invalid value: "graemel/tutorial-azure-aca-api:latest": GET https:: UNAUTHORIZED: authentication required; [map[Action:pull Class: Name:graemel/tutorial-azure-aca-api Type:repository]]: template.containers.tutacaapi.image.
+>>> start | 003-create-container-api.up: Sat Jul 16 08:52:18 UTC 2022 |---------------------
+.add extension
+.create containerapp environment
+/ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..[K"tutacaapi.yellowmeadow-0b70b5a3.westeurope.azurecontainerapps.io"
+>>> end   | 003-create-container-api.up: Sat Jul 16 08:53:16 UTC 2022 |---------------------
