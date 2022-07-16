@@ -49,3 +49,68 @@
 >>> end   | 004-create-container-api.up: Sat Jul 16 09:55:46 UTC 2022 |---------------------
 >>> start | 005-create-container-factorial-calc.up: Sat Jul 16 13:39:17 UTC 2022 |---------------------
 ERROR: Usage error: must specify --ingress with --target-port
+>>> start | 005-create-container-factorial-calc.up: Sat Jul 16 13:41:29 UTC 2022 |---------------------
+/ Running ..| Running ..\ Running ..- Running ../ Running ..[K{
+  "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/containerapps/tutacafact",
+  "identity": {
+    "type": "None"
+  },
+  "location": "West Europe",
+  "name": "tutacafact",
+  "properties": {
+    "configuration": {
+      "activeRevisionsMode": "Single",
+      "ingress": {
+        "allowInsecure": false,
+        "external": true,
+        "fqdn": "tutacafact.lemonhill-3718f5a2.westeurope.azurecontainerapps.io",
+        "targetPort": 3000,
+        "traffic": [
+          {
+            "latestRevision": true,
+            "weight": 100
+          }
+        ],
+        "transport": "Auto"
+      }
+    },
+    "customDomainVerificationId": "9BB6FEDAB3B17ACD9F3D9AE4B60FBBC238530BED44EA10E5864CAAA30B037243",
+    "latestRevisionFqdn": "tutacafact--6ocgunu.lemonhill-3718f5a2.westeurope.azurecontainerapps.io",
+    "latestRevisionName": "tutacafact--6ocgunu",
+    "managedEnvironmentId": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/managedEnvironments/tutACAEnv",
+    "outboundIpAddresses": [
+      "20.31.255.203",
+      "20.31.255.197",
+      "20.31.255.204"
+    ],
+    "provisioningState": "Succeeded",
+    "template": {
+      "containers": [
+        {
+          "image": "graemel/tutorial-azure-aca-factorial-calc",
+          "name": "tutacafact",
+          "resources": {
+            "cpu": 0.5,
+            "ephemeralStorage": "",
+            "memory": "1Gi"
+          }
+        }
+      ],
+      "revisionSuffix": "",
+      "scale": {
+        "maxReplicas": 10
+      }
+    }
+  },
+  "resourceGroup": "tutACA",
+  "systemData": {
+    "createdAt": "2022-07-16T13:41:36.3517596",
+    "createdBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "createdByType": "Application",
+    "lastModifiedAt": "2022-07-16T13:41:36.3517596",
+    "lastModifiedBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "lastModifiedByType": "Application"
+  },
+  "type": "Microsoft.App/containerApps"
+}
+>>> end   | 005-create-container-factorial-calc.up: Sat Jul 16 13:41:52 UTC 2022 |---------------------
