@@ -1,9 +1,9 @@
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
 Person(personUser, "User", "Arbitrary consumer")
-Container(containerAlias, "tutorial-azure-aca", "Technology", "Collection of rudimentary calculations")
+System(systemAlias, "tutorial-azure-aca", "Collection of rudimentary calculations")
 
-Rel(personUser, containerAlias, "calculation request")
+Rel(personUser, systemAlias, "calculation request")
 
 @enduml

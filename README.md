@@ -10,3 +10,15 @@ The context is super simple - a single consumer is able to request a number of c
 
 ![context image](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/graeme-lockley/tutorial-azure-aca/main/docs/context.puml "Context")
 
+The supported calculations are:
+
+- Factorial
+- Ackermann
+- Fibonacci
+
+## Components
+
+The component diagram shows that each calculation is written in a different language using a different runtime environment.
+
+![context image](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/graeme-lockley/tutorial-azure-aca/main/docs/system-tutorial-azure-aca.puml "system-tutorial-azure-aca")
+

@@ -1,0 +1,20 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(personUser, "User", "Arbitrary consumer")
+
+System_Boundary(c1, "tutorial-azure-aca") {
+    Container(apiGateway, "API", "node.js", "Routes requests to the appropriate container")
+
+    Container(factCalc, "factorial-calc", "Deno", "Performs factorial calculations with big integers")
+    Container(ackCalc, "ackermann-calc", "JRE", "Performs an Ackermann function calculation with big integers")
+    Container(fibCalc, "fibonacci-calc", ".NET", "Performs a Fibonacci calculation with integers")
+}
+
+Rel(personUser, apiGateway, "calculation request")
+
+Rel(apiGateway, factCalc, "factorial calculation")
+Rel(apiGateway, ackCalc, "ackermann calculation")
+Rel(apiGateway, fibCalc, "fibonacci calculation")
+
+@enduml
