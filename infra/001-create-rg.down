@@ -4,5 +4,5 @@
 
 az group delete \
   --name "$RG_NAME" \
-  --location "$RG_LOCATION" \
+  --yes \
   --only-show-errors

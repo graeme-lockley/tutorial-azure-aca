@@ -1,0 +1,20 @@
+#!/bin/bash
+
+. "$( dirname "$0" )/env.sh"
+
+echo ".add extension"
+az extension add \
+    --name containerapp \
+    --upgrade \
+    --only-show-errors|| exit 1
+
+echo ".create containerapp environment"
+az containerapp create \
+  --name "$CA_API_NAME" \
+  --resource-group "$RG_NAME" \
+  --environment "$CA_ENVIRONMENT_NAME" \
+  --image graemel/tutorial-azure-aca-api:latest \
+  --target-port 3000 \
+  --ingress 'external' \
+  --query properties.configuration.ingress.fqdn \
+  --only-show-errors
