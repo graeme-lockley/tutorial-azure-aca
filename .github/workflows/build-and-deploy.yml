@@ -29,6 +29,16 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
 
+      - name: Install node dependencies
+        run: |
+          cd ./containers/api
+          npm install
+
+      - name: Lint code base
+        run: |
+          cd ./containers/api
+          npm run lint
+
       - name: Create docker image
         run: ./scripts/api-docker-image.sh
 

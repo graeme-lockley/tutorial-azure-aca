@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "npx eslint main.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -11,5 +12,9 @@
   "dependencies": {
     "koa": "^2.13.4",
     "koa-router": "^11.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
