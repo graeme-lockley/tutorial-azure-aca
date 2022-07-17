@@ -29,7 +29,7 @@ router.get("/api/v1/factorial", (context: Context) => {
   } else {
     const v = calculate(BigInt(text));
 
-    context.response.type = "application/json";
+    context.response.type = "text/plain";
     context.response.body = v.toString();
   }
 });
