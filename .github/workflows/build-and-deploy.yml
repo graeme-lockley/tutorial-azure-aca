@@ -127,7 +127,7 @@ jobs:
       - name: Nudge
         run: |
           cd ./infra
-          ./004-create-container-api.up
+          ./007-create-container-api.up
 
   nudge-factorial-calc:
     runs-on: ubuntu-latest
@@ -145,4 +145,4 @@ jobs:
       - name: Nudge
         run: |
           cd ./infra
-          ./005-create-container-factorial-calc.up
+          ./004-create-container-factorial-calc.up
