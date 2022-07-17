@@ -17,5 +17,5 @@ az containerapp create \
   --image graemel/tutorial-azure-aca-api:latest \
   --target-port 3000 \
   --ingress 'external' \
-  --env-vars "FACTORIAL_URN=$FACTORIAL_URN"
+  --env-vars "FACTORIAL_URN=$FACTORIAL_URN" \
   --only-show-errors
