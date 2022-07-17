@@ -2,6 +2,14 @@
 
 . "$( dirname "$0" )/env.sh"
 
+FACTORIAL_URN=$( az containerapp show \
+  --name "tutacafact" \
+  --resource-group "tutACA" \
+  --query "properties.configuration.ingress.fqdn" \
+  --output tsv \
+  --only-show-errors ) || exit 1
+echo ". FACTORIAL_URN: $FACTORIAL_URN"
+
 az containerapp create \
   --name "$CA_API_NAME" \
   --resource-group "$RG_NAME" \
@@ -9,5 +17,5 @@ az containerapp create \
   --image graemel/tutorial-azure-aca-api:latest \
   --target-port 3000 \
   --ingress 'external' \
-  --query properties.configuration.ingress.fqdn \
+  --env-vars "FACTORIAL_URN=$FACTORIAL_URN"
   --only-show-errors

@@ -1,4 +1,4 @@
->>> start | 001-create-rg.up: Sat Jul 16 09:53:29 UTC 2022 |---------------------
+>>> start | 001-create-rg.up: Sun Jul 17 08:38:01 SAST 2022 |---------------------
 {
   "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA",
   "location": "westeurope",
@@ -10,13 +10,13 @@
   "tags": null,
   "type": "Microsoft.Resources/resourceGroups"
 }
->>> end   | 001-create-rg.up: Sat Jul 16 09:53:32 UTC 2022 |---------------------
->>> start | 002-register-operational-insights.up: Sat Jul 16 09:53:32 UTC 2022 |---------------------
->>> end   | 002-register-operational-insights.up: Sat Jul 16 09:53:33 UTC 2022 |---------------------
->>> start | 003-create-container-environment.up: Sat Jul 16 09:53:33 UTC 2022 |---------------------
+>>> end   | 001-create-rg.up: Sun Jul 17 08:38:07 SAST 2022 |---------------------
+>>> start | 002-register-operational-insights.up: Sun Jul 17 08:38:07 SAST 2022 |---------------------
+>>> end   | 002-register-operational-insights.up: Sun Jul 17 08:38:19 SAST 2022 |---------------------
+>>> start | 003-create-container-environment.up: Sun Jul 17 08:38:19 SAST 2022 |---------------------
 .register Microsoft.App provider
 .create containerapp environment
-/ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ..[K{
+/ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ..[K{
   "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/managedEnvironments/tutACAEnv",
   "location": "westeurope",
   "name": "tutACAEnv",
@@ -24,33 +24,28 @@
     "appLogsConfiguration": {
       "destination": "log-analytics",
       "logAnalyticsConfiguration": {
-        "customerId": "75a07bec-bba7-43c4-96c1-affd2ce1ddd7"
+        "customerId": "1f201196-ec5d-4884-a620-3790bc7d4188"
       }
     },
-    "defaultDomain": "lemonhill-3718f5a2.westeurope.azurecontainerapps.io",
+    "defaultDomain": "victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
     "provisioningState": "Succeeded",
-    "staticIp": "20.4.96.212",
+    "staticIp": "20.82.77.75",
     "zoneRedundant": false
   },
   "resourceGroup": "tutACA",
   "systemData": {
-    "createdAt": "2022-07-16T09:54:13.2323333",
-    "createdBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
-    "createdByType": "Application",
-    "lastModifiedAt": "2022-07-16T09:54:13.2323333",
-    "lastModifiedBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
-    "lastModifiedByType": "Application"
+    "createdAt": "2022-07-17T06:39:38.2232919",
+    "createdBy": "graeme.lockley@gmail.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2022-07-17T06:39:38.2232919",
+    "lastModifiedBy": "graeme.lockley@gmail.com",
+    "lastModifiedByType": "User"
   },
   "type": "Microsoft.App/managedEnvironments"
 }
->>> end   | 003-create-container-environment.up: Sat Jul 16 09:55:10 UTC 2022 |---------------------
->>> start | 004-create-container-api.up: Sat Jul 16 09:55:10 UTC 2022 |---------------------
-/ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..- Running ../ Running ..[K"tutacaapi.lemonhill-3718f5a2.westeurope.azurecontainerapps.io"
->>> end   | 004-create-container-api.up: Sat Jul 16 09:55:46 UTC 2022 |---------------------
->>> start | 005-create-container-factorial-calc.up: Sat Jul 16 13:39:17 UTC 2022 |---------------------
-ERROR: Usage error: must specify --ingress with --target-port
->>> start | 005-create-container-factorial-calc.up: Sat Jul 16 13:41:29 UTC 2022 |---------------------
-/ Running ..| Running ..\ Running ..- Running ../ Running ..[K{
+>>> end   | 003-create-container-environment.up: Sun Jul 17 08:40:42 SAST 2022 |---------------------
+>>> start | 004-create-container-factorial-calc.up: Sun Jul 17 08:40:42 SAST 2022 |---------------------
+/ Running ..| Running ..\ Running ..- Running ..[K{
   "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/containerapps/tutacafact",
   "identity": {
     "type": "None"
@@ -63,7 +58,7 @@ ERROR: Usage error: must specify --ingress with --target-port
       "ingress": {
         "allowInsecure": false,
         "external": true,
-        "fqdn": "tutacafact.lemonhill-3718f5a2.westeurope.azurecontainerapps.io",
+        "fqdn": "tutacafact.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
         "targetPort": 3000,
         "traffic": [
           {
@@ -75,13 +70,13 @@ ERROR: Usage error: must specify --ingress with --target-port
       }
     },
     "customDomainVerificationId": "9BB6FEDAB3B17ACD9F3D9AE4B60FBBC238530BED44EA10E5864CAAA30B037243",
-    "latestRevisionFqdn": "tutacafact--6ocgunu.lemonhill-3718f5a2.westeurope.azurecontainerapps.io",
-    "latestRevisionName": "tutacafact--6ocgunu",
+    "latestRevisionFqdn": "tutacafact--odh27hm.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+    "latestRevisionName": "tutacafact--odh27hm",
     "managedEnvironmentId": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/managedEnvironments/tutACAEnv",
     "outboundIpAddresses": [
-      "20.31.255.203",
-      "20.31.255.197",
-      "20.31.255.204"
+      "20.23.107.219",
+      "20.23.107.204",
+      "20.23.107.203"
     ],
     "provisioningState": "Succeeded",
     "template": {
@@ -104,13 +99,94 @@ ERROR: Usage error: must specify --ingress with --target-port
   },
   "resourceGroup": "tutACA",
   "systemData": {
-    "createdAt": "2022-07-16T13:41:36.3517596",
-    "createdBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
-    "createdByType": "Application",
-    "lastModifiedAt": "2022-07-16T13:41:36.3517596",
-    "lastModifiedBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
-    "lastModifiedByType": "Application"
+    "createdAt": "2022-07-17T06:40:57.8412921",
+    "createdBy": "graeme.lockley@gmail.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2022-07-17T06:40:57.8412921",
+    "lastModifiedBy": "graeme.lockley@gmail.com",
+    "lastModifiedByType": "User"
   },
   "type": "Microsoft.App/containerApps"
 }
->>> end   | 005-create-container-factorial-calc.up: Sat Jul 16 13:41:52 UTC 2022 |---------------------
+>>> end   | 004-create-container-factorial-calc.up: Sun Jul 17 08:41:13 SAST 2022 |---------------------
+>>> start | 007-create-container-api.up: Sun Jul 17 08:41:13 SAST 2022 |---------------------
+>>> start | 007-create-container-api.up: Sun Jul 17 08:44:24 SAST 2022 |---------------------
+./007-create-container-api.up: line 11: --only-show-errors: command not found
+. FACTORIAL_URN: tutacafact.victoriouscoast-832e0370.westeurope.azurecontainerapps.io
+>>> start | 007-create-container-api.up: Sun Jul 17 08:44:46 SAST 2022 |---------------------
+. FACTORIAL_URN: tutacafact.victoriouscoast-832e0370.westeurope.azurecontainerapps.io
+>>> start | 007-create-container-api.up: Sun Jul 17 08:46:10 SAST 2022 |---------------------
+. FACTORIAL_URN: tutacafact.victoriouscoast-832e0370.westeurope.azurecontainerapps.io
+/ Running ..| Running ..\ Running ..- Running ../ Running ..WARNING: 
+Container app created. Access your app at https://tutacaapi.victoriouscoast-832e0370.westeurope.azurecontainerapps.io/
+
+[K{
+  "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/containerapps/tutacaapi",
+  "identity": {
+    "type": "None"
+  },
+  "location": "West Europe",
+  "name": "tutacaapi",
+  "properties": {
+    "configuration": {
+      "activeRevisionsMode": "Single",
+      "ingress": {
+        "allowInsecure": false,
+        "external": true,
+        "fqdn": "tutacaapi.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+        "targetPort": 3000,
+        "traffic": [
+          {
+            "latestRevision": true,
+            "weight": 100
+          }
+        ],
+        "transport": "Auto"
+      }
+    },
+    "customDomainVerificationId": "9BB6FEDAB3B17ACD9F3D9AE4B60FBBC238530BED44EA10E5864CAAA30B037243",
+    "latestRevisionFqdn": "tutacaapi--ntgujym.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+    "latestRevisionName": "tutacaapi--ntgujym",
+    "managedEnvironmentId": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/managedEnvironments/tutACAEnv",
+    "outboundIpAddresses": [
+      "20.23.107.219",
+      "20.23.107.204",
+      "20.23.107.203"
+    ],
+    "provisioningState": "Succeeded",
+    "template": {
+      "containers": [
+        {
+          "env": [
+            {
+              "name": "FACTORIAL_URN",
+              "value": "tutacafact.victoriouscoast-832e0370.westeurope.azurecontainerapps.io"
+            }
+          ],
+          "image": "graemel/tutorial-azure-aca-api:latest",
+          "name": "tutacaapi",
+          "resources": {
+            "cpu": 0.5,
+            "ephemeralStorage": "",
+            "memory": "1Gi"
+          }
+        }
+      ],
+      "revisionSuffix": "",
+      "scale": {
+        "maxReplicas": 10
+      }
+    }
+  },
+  "resourceGroup": "tutACA",
+  "systemData": {
+    "createdAt": "2022-07-17T06:46:32.7381677",
+    "createdBy": "graeme.lockley@gmail.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2022-07-17T06:46:32.7381677",
+    "lastModifiedBy": "graeme.lockley@gmail.com",
+    "lastModifiedByType": "User"
+  },
+  "type": "Microsoft.App/containerApps"
+}
+./007-create-container-api.up: line 21: --only-show-errors: command not found

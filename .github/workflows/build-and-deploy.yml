@@ -64,7 +64,7 @@ jobs:
           deno-version: v1.x
 
       - name: Lint factorial-calc
-        run: ./scripts/lint-factorial-calc-deno.sh
+        run: ./scripts/factorial-calc-lint-deno.sh
 
       - name: Create docker image
         run: ./scripts/factorial-calc-docker-image.sh
