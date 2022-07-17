@@ -17,7 +17,10 @@ router.get('/env', (ctx) => {
 router.get('/api/v1/factorial/:n([0-9]+)', async (ctx) => {
   const n = ctx.params.n;
 
-  const [factorialURN, factorialPort] = [process.env.FACTORIAL_URN ?? 'localhost', process.env.FACTORIAL_PORT ?? '443'];
+  const [factorialURN, factorialPort] = [
+    process.env.FACTORIAL_URN ?? 'localhost',
+    process.env.FACTORIAL_PORT ?? '443',
+  ];
 
   const options = {
     hostname: factorialURN,
@@ -27,7 +30,9 @@ router.get('/api/v1/factorial/:n([0-9]+)', async (ctx) => {
   };
 
   const result = await new Promise((resolve, reject) => {
-    const req = (factorialURN.indexOf('.') === -1 ? http : https).request(options, (res) => {
+    const protocol = factorialURN.indexOf('.') === -1 ? http : https;
+
+    const req = protocol.request(options, (res) => {
       res.on('data', (d) => {
         resolve(Buffer.from(d).toString());
       });
