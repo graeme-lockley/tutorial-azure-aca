@@ -25,5 +25,5 @@ az containerapp create \
   --image graemel/tutorial-azure-aca-api:latest \
   --target-port 3000 \
   --ingress 'external' \
-  --env-vars "ACKERMANN_URN=$ACKERMANN_URN FACTORIAL_URN=$FACTORIAL_URN" \
+  --env-vars "ACKERMANN_URN=$ACKERMANN_URN" "FACTORIAL_URN=$FACTORIAL_URN" \
   --only-show-errors

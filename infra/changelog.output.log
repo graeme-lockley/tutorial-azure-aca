@@ -409,3 +409,13 @@ Are you sure you want to perform this operation? (y/n): <<< start | 007-create-c
   "type": "Microsoft.App/containerApps"
 }
 >>> end   | 007-create-container-api.up: Sat Jul 23 08:28:05 SAST 2022 |---------------------
+<<< start | 007-create-container-api.down: Sat Jul 23 08:41:55 SAST 2022 |---------------------
+/ Running ..[K<<< end   | 007-create-container-api.down: Sat Jul 23 08:42:05 SAST 2022 |---------------------
+<<< start | 005-create-container-ackermann-calc.down: Sat Jul 23 08:42:17 SAST 2022 |---------------------
+ERROR: unrecognized arguments: --yes
+
+Examples from AI knowledge base:
+https://aka.ms/cli_ref
+Read more about the command in reference docs
+<<< start | 005-create-container-ackermann-calc.down: Sat Jul 23 08:42:34 SAST 2022 |---------------------
+/ Running ..[K<<< end   | 005-create-container-ackermann-calc.down: Sat Jul 23 08:42:43 SAST 2022 |---------------------
