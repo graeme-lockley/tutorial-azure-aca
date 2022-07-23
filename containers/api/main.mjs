@@ -14,23 +14,25 @@ const factorialPort = process.env.FACTORIAL_PORT ?? '443';
 
 router.get('/hello', (ctx) => {
   ctx.body = 'Hello World';
-});    
+});
 
 router.get('/env', (ctx) => {
   ctx.body = JSON.stringify(process.env, null, 2);
-});    
+});
 
 router.get('/api/v1/ackermann/:m([0-9]+)/:n([0-9]+)', async (ctx) => {
   const m = ctx.params.m;
   const n = ctx.params.n;
+  const url = `/api/v1/ackermann/${m}/${n}`;
 
-  await callRestAPI(ctx, ackermannURN, ackermannPort, `/api/v1/ackermann/${m}/${n}`);
-});  
+  await callRestAPI(ctx, ackermannURN, ackermannPort, url);
+});
 
 router.get('/api/v1/factorial/:n([0-9]+)', async (ctx) => {
   const n = ctx.params.n;
+  const url = `/api/v1/factorial?${n}`;
 
-  await callRestAPI(ctx, factorialURN, factorialPort, `/api/v1/factorial?${n}`);
+  await callRestAPI(ctx, factorialURN, factorialPort, url);
 });
 
 const callRestAPI = async (ctx, urn, port, path) => {
@@ -58,7 +60,7 @@ const callRestAPI = async (ctx, urn, port, path) => {
   });
 
   ctx.body = result;
-}
+};
 
 app.use(router.routes());
 
