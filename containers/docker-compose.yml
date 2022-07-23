@@ -5,9 +5,15 @@ services:
     ports:
       - "3000:3000"
     environment:
+      ACKERMANN_URN: ackermann
+      ACKERMANN_PORT: 8080
       FACTORIAL_URN: factorial
       FACTORIAL_PORT: 3000
   factorial:
     build: factorial-calc
     ports:
       - "3001:3000"
+  ackermann:
+    build: ackermann-calc
+    ports:
+      - "3002:8080"
