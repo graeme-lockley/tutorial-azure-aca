@@ -1,0 +1,12 @@
+#!/bin/bash
+
+. "$( dirname "$0" )/env.sh"
+
+az containerapp create \
+  --name "$CA_ACKERMANN_NAME" \
+  --resource-group "$RG_NAME" \
+  --environment "$CA_ENVIRONMENT_NAME" \
+  --image graemel/tutorial-azure-aca-ackermann-calc \
+  --target-port 3000 \
+  --ingress 'external' \
+  --only-show-errors

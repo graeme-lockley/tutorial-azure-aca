@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. "$( dirname "$0" )/env.sh"
+
+az containerapp delete \
+  --name "$CA_API_NAME" \
+  --resource-group "$RG_NAME" \
+  --yes \
+  --only-show-errors

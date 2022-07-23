@@ -2,9 +2,17 @@
 
 . "$( dirname "$0" )/env.sh"
 
+ACKERMANN_URN=$( az containerapp show \
+  --name "$CA_ACKERMANN_NAME" \
+  --resource-group "$RG_NAME" \
+  --query "properties.configuration.ingress.fqdn" \
+  --output tsv \
+  --only-show-errors ) || exit 1
+echo ". ACKERMANN_URN: $ACKERMANN_URN"
+
 FACTORIAL_URN=$( az containerapp show \
-  --name "tutacafact" \
-  --resource-group "tutACA" \
+  --name "$CA_FACTORIAL_NAME" \
+  --resource-group "$RG_NAME" \
   --query "properties.configuration.ingress.fqdn" \
   --output tsv \
   --only-show-errors ) || exit 1
@@ -17,5 +25,5 @@ az containerapp create \
   --image graemel/tutorial-azure-aca-api:latest \
   --target-port 3000 \
   --ingress 'external' \
-  --env-vars "FACTORIAL_URN=$FACTORIAL_URN" \
+  --env-vars "ACKERMANN_URN=$ACKERMANN_URN FACTORIAL_URN=$FACTORIAL_URN" \
   --only-show-errors
