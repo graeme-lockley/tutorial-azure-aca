@@ -419,3 +419,145 @@ https://aka.ms/cli_ref
 Read more about the command in reference docs
 <<< start | 005-create-container-ackermann-calc.down: Sat Jul 23 08:42:34 SAST 2022 |---------------------
 / Running ..[K<<< end   | 005-create-container-ackermann-calc.down: Sat Jul 23 08:42:43 SAST 2022 |---------------------
+>>> start | 005-create-container-ackermann-calc.up: Sat Jul 23 06:45:33 UTC 2022 |---------------------
+/ Running ..| Running ..\ Running ..[K{
+  "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/containerapps/tutacaack",
+  "identity": {
+    "type": "None"
+  },
+  "location": "West Europe",
+  "name": "tutacaack",
+  "properties": {
+    "configuration": {
+      "activeRevisionsMode": "Single",
+      "ingress": {
+        "allowInsecure": false,
+        "external": true,
+        "fqdn": "tutacaack.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+        "targetPort": 8080,
+        "traffic": [
+          {
+            "latestRevision": true,
+            "weight": 100
+          }
+        ],
+        "transport": "Auto"
+      }
+    },
+    "customDomainVerificationId": "9BB6FEDAB3B17ACD9F3D9AE4B60FBBC238530BED44EA10E5864CAAA30B037243",
+    "latestRevisionFqdn": "tutacaack--qkuv807.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+    "latestRevisionName": "tutacaack--qkuv807",
+    "managedEnvironmentId": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/managedEnvironments/tutACAEnv",
+    "outboundIpAddresses": [
+      "20.23.107.219",
+      "20.23.107.204",
+      "20.23.107.203"
+    ],
+    "provisioningState": "Succeeded",
+    "template": {
+      "containers": [
+        {
+          "image": "graemel/tutorial-azure-aca-ackermann-calc",
+          "name": "tutacaack",
+          "resources": {
+            "cpu": 0.5,
+            "ephemeralStorage": "",
+            "memory": "1Gi"
+          }
+        }
+      ],
+      "revisionSuffix": "",
+      "scale": {
+        "maxReplicas": 10
+      }
+    }
+  },
+  "resourceGroup": "tutACA",
+  "systemData": {
+    "createdAt": "2022-07-23T06:45:39.5539821",
+    "createdBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "createdByType": "Application",
+    "lastModifiedAt": "2022-07-23T06:45:39.5539821",
+    "lastModifiedBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "lastModifiedByType": "Application"
+  },
+  "type": "Microsoft.App/containerApps"
+}
+>>> end   | 005-create-container-ackermann-calc.up: Sat Jul 23 06:45:49 UTC 2022 |---------------------
+>>> start | 007-create-container-api.up: Sat Jul 23 06:45:49 UTC 2022 |---------------------
+. ACKERMANN_URN: tutacaack.victoriouscoast-832e0370.westeurope.azurecontainerapps.io
+. FACTORIAL_URN: tutacafact.victoriouscoast-832e0370.westeurope.azurecontainerapps.io
+/ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..[K{
+  "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/containerapps/tutacaapi",
+  "identity": {
+    "type": "None"
+  },
+  "location": "West Europe",
+  "name": "tutacaapi",
+  "properties": {
+    "configuration": {
+      "activeRevisionsMode": "Single",
+      "ingress": {
+        "allowInsecure": false,
+        "external": true,
+        "fqdn": "tutacaapi.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+        "targetPort": 3000,
+        "traffic": [
+          {
+            "latestRevision": true,
+            "weight": 100
+          }
+        ],
+        "transport": "Auto"
+      }
+    },
+    "customDomainVerificationId": "9BB6FEDAB3B17ACD9F3D9AE4B60FBBC238530BED44EA10E5864CAAA30B037243",
+    "latestRevisionFqdn": "tutacaapi--va3yakb.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+    "latestRevisionName": "tutacaapi--va3yakb",
+    "managedEnvironmentId": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/managedEnvironments/tutACAEnv",
+    "outboundIpAddresses": [
+      "20.23.107.219",
+      "20.23.107.204",
+      "20.23.107.203"
+    ],
+    "provisioningState": "Succeeded",
+    "template": {
+      "containers": [
+        {
+          "env": [
+            {
+              "name": "ACKERMANN_URN",
+              "value": "tutacaack.victoriouscoast-832e0370.westeurope.azurecontainerapps.io"
+            },
+            {
+              "name": "FACTORIAL_URN",
+              "value": "tutacafact.victoriouscoast-832e0370.westeurope.azurecontainerapps.io"
+            }
+          ],
+          "image": "graemel/tutorial-azure-aca-api:latest",
+          "name": "tutacaapi",
+          "resources": {
+            "cpu": 0.5,
+            "ephemeralStorage": "",
+            "memory": "1Gi"
+          }
+        }
+      ],
+      "revisionSuffix": "",
+      "scale": {
+        "maxReplicas": 10
+      }
+    }
+  },
+  "resourceGroup": "tutACA",
+  "systemData": {
+    "createdAt": "2022-07-23T06:45:57.1140807",
+    "createdBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "createdByType": "Application",
+    "lastModifiedAt": "2022-07-23T06:45:57.1140807",
+    "lastModifiedBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "lastModifiedByType": "Application"
+  },
+  "type": "Microsoft.App/containerApps"
+}
+>>> end   | 007-create-container-api.up: Sat Jul 23 06:46:14 UTC 2022 |---------------------
