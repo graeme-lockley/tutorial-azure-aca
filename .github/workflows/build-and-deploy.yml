@@ -113,7 +113,7 @@ jobs:
 
   build-azure-infrastructure:
     runs-on: ubuntu-latest
-    needs: [build-api-container, build-factorial-calc-container]
+    needs: [build-api-container, build-ackermann-calc-container, build-factorial-calc-container]
 
     steps:
       - name: Checkout source code
@@ -161,6 +161,24 @@ jobs:
         run: |
           cd ./infra
           ./007-create-container-api.up
+
+  nudge-ackermann-calc:
+    runs-on: ubuntu-latest
+    needs: [build-azure-infrastructure]
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Nudge
+        run: |
+          cd ./infra
+          ./005-create-container-ackermann-calc.up
 
   nudge-factorial-calc:
     runs-on: ubuntu-latest
