@@ -2,13 +2,11 @@ package za.co.no9.ackermann;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public final class Controller {
@@ -22,10 +20,9 @@ public final class Controller {
             BigInteger v = get(m, n);
 
             if (v == null) {
-                if (n.equals(BigInteger.ZERO))
-                    v = ackermann(m.subtract(BigInteger.ONE), BigInteger.ONE);
-                else
-                    v = ackermann(m.subtract(BigInteger.ONE), ackermann(m, n.subtract(BigInteger.ONE)));
+                v = n.equals(BigInteger.ZERO)
+                    ? ackermann(m.subtract(BigInteger.ONE), BigInteger.ONE)
+                    : ackermann(m.subtract(BigInteger.ONE), ackermann(m, n.subtract(BigInteger.ONE)));
             }
 
             put(m, n, v);
