@@ -8,7 +8,7 @@ System_Boundary(c1, "tutorial-azure-aca") {
 
     Container(factCalc, "factorial-calc", "Deno", "Performs factorial calculations with big integers")
     Container(ackCalc, "ackermann-calc", "JRE", "Performs an Ackermann function calculation with big integers")
-    Container(fibCalc, "fibonacci-calc", ".NET", "Performs a Fibonacci calculation with integers")
+    Container(fibCalc, "fibonacci-calc", ".NET", "Performs a Fibonacci calculation with big integers")
 }
 
 Rel(personUser, apiGateway, "calculation request")
