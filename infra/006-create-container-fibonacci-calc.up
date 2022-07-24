@@ -7,6 +7,6 @@ az containerapp create \
   --resource-group "$RG_NAME" \
   --environment "$CA_ENVIRONMENT_NAME" \
   --image graemel/tutorial-azure-aca-fibonacci-calc \
-  --target-port 8080 \
+  --target-port 3000 \
   --ingress 'external' \
   --only-show-errors
