@@ -12,6 +12,9 @@ const ackermannPort = process.env.ACKERMANN_PORT ?? '443';
 const factorialURN = process.env.FACTORIAL_URN ?? 'localhost';
 const factorialPort = process.env.FACTORIAL_PORT ?? '443';
 
+const fibonacciURN = process.env.FIBONACCI_URN ?? 'localhost';
+const fibonacciPort = process.env.FIBONACCI_PORT ?? '443';
+
 router.get('/hello', (ctx) => {
   ctx.body = 'Hello World';
 });
@@ -33,6 +36,13 @@ router.get('/api/v1/factorial/:n([0-9]+)', async (ctx) => {
   const url = `/api/v1/factorial?${n}`;
 
   await callRestAPI(ctx, factorialURN, factorialPort, url);
+});
+
+router.get('/api/v1/fibonacci/:n([0-9]+)', async (ctx) => {
+  const n = ctx.params.n;
+  const url = `/api/v1/fibonacci/${n}`;
+
+  await callRestAPI(ctx, fibonacciURN, fibonacciPort, url);
 });
 
 const callRestAPI = async (ctx, urn, port, path) => {

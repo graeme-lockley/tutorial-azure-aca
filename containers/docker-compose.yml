@@ -9,11 +9,17 @@ services:
       ACKERMANN_PORT: 8080
       FACTORIAL_URN: factorial
       FACTORIAL_PORT: 3000
-  factorial:
-    build: factorial-calc
-    ports:
-      - "3001:3000"
+      FIBONACCI_URN: fibonacci
+      FIBONACCI_PORT: 3000
   ackermann:
     build: ackermann-calc
     ports:
-      - "3002:8080"
+      - "3001:8080"
+  factorial:
+    build: factorial-calc
+    ports:
+      - "3002:3000"
+  fibonacci:
+    build: fibonacci-calc/web
+    ports:
+      - "3003:3000"
