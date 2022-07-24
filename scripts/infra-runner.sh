@@ -43,7 +43,7 @@ then
     do
         if ! grep "${FILE}=" "$LOG_FILE_NAME" >> /dev/null
         then
-            echo "Excute: $FILE"
+            echo "Execute: $FILE"
             echo ">>> start | $FILE: $( date ) |---------------------" >> $OUTPUT_FILE_NAME
 
             "./$FILE" 2>&1 | tee -a "$OUTPUT_FILE_NAME"
