@@ -18,6 +18,14 @@ FACTORIAL_URN=$( az containerapp show \
   --only-show-errors ) || exit 1
 echo ". FACTORIAL_URN: $FACTORIAL_URN"
 
+FIBONACCI_URN=$( az containerapp show \
+  --name "$CA_FIBONACCI_NAME" \
+  --resource-group "$RG_NAME" \
+  --query "properties.configuration.ingress.fqdn" \
+  --output tsv \
+  --only-show-errors ) || exit 1
+echo ". FIBONACCI_URN: $FIBONACCI_URN"
+
 az containerapp create \
   --name "$CA_API_NAME" \
   --resource-group "$RG_NAME" \
@@ -25,5 +33,5 @@ az containerapp create \
   --image graemel/tutorial-azure-aca-api:latest \
   --target-port 3000 \
   --ingress 'external' \
-  --env-vars "ACKERMANN_URN=$ACKERMANN_URN" "FACTORIAL_URN=$FACTORIAL_URN" \
+  --env-vars "ACKERMANN_URN=$ACKERMANN_URN" "FACTORIAL_URN=$FACTORIAL_URN" "FIBONACCI_URN=$FIBONACCI_URN" \
   --only-show-errors

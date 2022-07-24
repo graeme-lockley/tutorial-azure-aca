@@ -6,4 +6,4 @@ var fibonacci = new Fibonacci.Fibonacci();
 
 app.MapGet("/api/v1/fibonacci/{n}", (System.Numerics.BigInteger n) => fibonacci.Calculate(n).ToString("D"));
 
-app.Run("http://localhost:3000");
+app.Run("http://+:3000");

@@ -561,3 +561,7 @@ Read more about the command in reference docs
   "type": "Microsoft.App/containerApps"
 }
 >>> end   | 007-create-container-api.up: Sat Jul 23 06:46:14 UTC 2022 |---------------------
+<<< start | 007-create-container-api.down: Sun Jul 24 10:43:27 SAST 2022 |---------------------
+/ Running ..[K<<< end   | 007-create-container-api.down: Sun Jul 24 10:43:40 SAST 2022 |---------------------
+>>> start | 006-create-container-fibonacci-calc.up: Sun Jul 24 10:49:20 SAST 2022 |---------------------
+ERROR: The following field(s) are either invalid or missing. Invalid value: "graemel/tutorial-azure-aca-finonacci-calc": GET https:: UNAUTHORIZED: authentication required; [map[Action:pull Class: Name:graemel/tutorial-azure-aca-finonacci-calc Type:repository]]: template.containers.tutacafib.image.

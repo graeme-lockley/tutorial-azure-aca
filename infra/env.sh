@@ -9,6 +9,7 @@ export CA_ENVIRONMENT_NAME=tutACAEnv
 export CA_API_NAME=tutacaapi
 export CA_ACKERMANN_NAME=tutacaack
 export CA_FACTORIAL_NAME=tutacafact
+export CA_FIBONACCI_NAME=tutacafib
 
 if ! az extension list | grep '"containerapp"' > /dev/null
 then
