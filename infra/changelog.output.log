@@ -565,3 +565,150 @@ Read more about the command in reference docs
 / Running ..[K<<< end   | 007-create-container-api.down: Sun Jul 24 10:43:40 SAST 2022 |---------------------
 >>> start | 006-create-container-fibonacci-calc.up: Sun Jul 24 10:49:20 SAST 2022 |---------------------
 ERROR: The following field(s) are either invalid or missing. Invalid value: "graemel/tutorial-azure-aca-finonacci-calc": GET https:: UNAUTHORIZED: authentication required; [map[Action:pull Class: Name:graemel/tutorial-azure-aca-finonacci-calc Type:repository]]: template.containers.tutacafib.image.
+>>> start | 006-create-container-fibonacci-calc.up: Sun Jul 24 08:57:57 UTC 2022 |---------------------
+/ Running ..| Running ..\ Running ..- Running ../ Running ..[K{
+  "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/containerapps/tutacafib",
+  "identity": {
+    "type": "None"
+  },
+  "location": "West Europe",
+  "name": "tutacafib",
+  "properties": {
+    "configuration": {
+      "activeRevisionsMode": "Single",
+      "ingress": {
+        "allowInsecure": false,
+        "external": true,
+        "fqdn": "tutacafib.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+        "targetPort": 8080,
+        "traffic": [
+          {
+            "latestRevision": true,
+            "weight": 100
+          }
+        ],
+        "transport": "Auto"
+      }
+    },
+    "customDomainVerificationId": "9BB6FEDAB3B17ACD9F3D9AE4B60FBBC238530BED44EA10E5864CAAA30B037243",
+    "latestRevisionFqdn": "tutacafib--munov5l.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+    "latestRevisionName": "tutacafib--munov5l",
+    "managedEnvironmentId": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/managedEnvironments/tutACAEnv",
+    "outboundIpAddresses": [
+      "20.23.107.219",
+      "20.23.107.204",
+      "20.23.107.203"
+    ],
+    "provisioningState": "Succeeded",
+    "template": {
+      "containers": [
+        {
+          "image": "graemel/tutorial-azure-aca-fibonacci-calc",
+          "name": "tutacafib",
+          "resources": {
+            "cpu": 0.5,
+            "ephemeralStorage": "",
+            "memory": "1Gi"
+          }
+        }
+      ],
+      "revisionSuffix": "",
+      "scale": {
+        "maxReplicas": 10
+      }
+    }
+  },
+  "resourceGroup": "tutACA",
+  "systemData": {
+    "createdAt": "2022-07-24T08:58:02.605918",
+    "createdBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "createdByType": "Application",
+    "lastModifiedAt": "2022-07-24T08:58:02.605918",
+    "lastModifiedBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "lastModifiedByType": "Application"
+  },
+  "type": "Microsoft.App/containerApps"
+}
+>>> end   | 006-create-container-fibonacci-calc.up: Sun Jul 24 08:58:18 UTC 2022 |---------------------
+>>> start | 007-create-container-api.up: Sun Jul 24 08:58:18 UTC 2022 |---------------------
+. ACKERMANN_URN: tutacaack.victoriouscoast-832e0370.westeurope.azurecontainerapps.io
+. FACTORIAL_URN: tutacafact.victoriouscoast-832e0370.westeurope.azurecontainerapps.io
+. FIBONACCI_URN: tutacafib.victoriouscoast-832e0370.westeurope.azurecontainerapps.io
+/ Running ..| Running ..\ Running ..- Running ../ Running ..| Running ..\ Running ..[K{
+  "id": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/containerapps/tutacaapi",
+  "identity": {
+    "type": "None"
+  },
+  "location": "West Europe",
+  "name": "tutacaapi",
+  "properties": {
+    "configuration": {
+      "activeRevisionsMode": "Single",
+      "ingress": {
+        "allowInsecure": false,
+        "external": true,
+        "fqdn": "tutacaapi.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+        "targetPort": 3000,
+        "traffic": [
+          {
+            "latestRevision": true,
+            "weight": 100
+          }
+        ],
+        "transport": "Auto"
+      }
+    },
+    "customDomainVerificationId": "9BB6FEDAB3B17ACD9F3D9AE4B60FBBC238530BED44EA10E5864CAAA30B037243",
+    "latestRevisionFqdn": "tutacaapi--2uoo8ru.victoriouscoast-832e0370.westeurope.azurecontainerapps.io",
+    "latestRevisionName": "tutacaapi--2uoo8ru",
+    "managedEnvironmentId": "/subscriptions/2ee96cab-57d3-472f-9d74-b9a9dc556def/resourceGroups/tutACA/providers/Microsoft.App/managedEnvironments/tutACAEnv",
+    "outboundIpAddresses": [
+      "20.23.107.219",
+      "20.23.107.204",
+      "20.23.107.203"
+    ],
+    "provisioningState": "Succeeded",
+    "template": {
+      "containers": [
+        {
+          "env": [
+            {
+              "name": "ACKERMANN_URN",
+              "value": "tutacaack.victoriouscoast-832e0370.westeurope.azurecontainerapps.io"
+            },
+            {
+              "name": "FACTORIAL_URN",
+              "value": "tutacafact.victoriouscoast-832e0370.westeurope.azurecontainerapps.io"
+            },
+            {
+              "name": "FIBONACCI_URN",
+              "value": "tutacafib.victoriouscoast-832e0370.westeurope.azurecontainerapps.io"
+            }
+          ],
+          "image": "graemel/tutorial-azure-aca-api:latest",
+          "name": "tutacaapi",
+          "resources": {
+            "cpu": 0.5,
+            "ephemeralStorage": "",
+            "memory": "1Gi"
+          }
+        }
+      ],
+      "revisionSuffix": "",
+      "scale": {
+        "maxReplicas": 10
+      }
+    }
+  },
+  "resourceGroup": "tutACA",
+  "systemData": {
+    "createdAt": "2022-07-24T08:58:25.9801717",
+    "createdBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "createdByType": "Application",
+    "lastModifiedAt": "2022-07-24T08:58:25.9801717",
+    "lastModifiedBy": "88161c6b-d2fb-42d2-8b58-9fc0e2d11d90",
+    "lastModifiedByType": "Application"
+  },
+  "type": "Microsoft.App/containerApps"
+}
+>>> end   | 007-create-container-api.up: Sun Jul 24 08:58:46 UTC 2022 |---------------------
