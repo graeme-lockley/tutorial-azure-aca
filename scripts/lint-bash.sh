@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+PROJECT_HOME=$( "$( dirname "$0" )/../.tasks/project-home" ) || exit 1
 
-shellcheck -e SC1090,SC1091 "$SCRIPT_DIR"/../scripts/*.sh || exit 1
-shellcheck -e SC1090,SC1091 "$SCRIPT_DIR"/../infra/*.sh "$SCRIPT_DIR"/../infra/*.up "$SCRIPT_DIR"/../infra/*.down
+shellcheck -e SC1090,SC1091 "$PROJECT_HOME"/.tasks/* || exit 1
+
+shellcheck -e SC1090,SC1091 "$PROJECT_HOME"/scripts/*.sh || exit 1
+
+shellcheck -e SC1090,SC1091 \
+    "$PROJECT_HOME"/infra/*.sh \
+    "$PROJECT_HOME"/infra/*.up \
+    "$PROJECT_HOME"/infra/*.down
