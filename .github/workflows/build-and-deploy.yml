@@ -165,7 +165,7 @@ jobs:
       - name: Commit log
         if: always()
         run: |
-          cd ./infra
+          cd ./src/infra
           git add ./*.log
           if ! git diff-index --quiet HEAD --; then
             git config user.name github-actions
