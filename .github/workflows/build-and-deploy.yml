@@ -189,7 +189,7 @@ jobs:
 
       - name: Nudge
         run: |
-          cd ./infra
+          cd ./src/infra
           ./007-create-container-api.up
 
   nudge-ackermann-calc:
@@ -207,7 +207,7 @@ jobs:
 
       - name: Nudge
         run: |
-          cd ./infra
+          cd ./src/infra
           ./005-create-container-ackermann-calc.up
 
   nudge-factorial-calc:
@@ -225,7 +225,7 @@ jobs:
 
       - name: Nudge
         run: |
-          cd ./infra
+          cd ./src/infra
           ./004-create-container-factorial-calc.up
 
   nudge-fibonacci-calc:
@@ -243,5 +243,5 @@ jobs:
 
       - name: Nudge
         run: |
-          cd ./infra
+          cd ./src/infra
           ./006-create-container-fibonacci-calc.up
