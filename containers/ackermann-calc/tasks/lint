@@ -18,7 +18,7 @@ case "$1" in
         echo "    Run all lint tasks"
         echo "  bash"
         echo "    Run all bash lint tasks"
-        echo "  setup"
+        echo "  install"
         echo "    Install tooling if not installed"
         exit 0
         ;;
@@ -31,8 +31,8 @@ case "$1" in
         lint_bash
         ;;
 
-    setup)
-        "$PROJECT_HOME"/.tasks/tools/lint-bash setup
+    install)
+        "$PROJECT_HOME"/.tasks/tools/lint-bash install
         ;;
 
     *)
@@ -40,4 +40,3 @@ case "$1" in
         exit 1
         ;;
 esac
- 

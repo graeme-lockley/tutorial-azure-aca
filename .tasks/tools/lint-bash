@@ -17,7 +17,7 @@ case "$1" in
         echo "    Run shellcheck passing all arguments following run to shellcheck"
         echo "  info"
         echo "    Describes the setup of the installed shellcheck binary"
-        echo "  setup"
+        echo "  install"
         echo "    If shellcheck is not installed, installs it"
         echo "  verify"
         echo "    Exits with an error if shellcheck is not installed otherwise silently continues"
@@ -27,7 +27,7 @@ case "$1" in
     run)
         if [ "$IS_INSTALLED" == "false" ]
         then
-            "$PROJECT_HOME"/.tasks/tools/lint-bash setup || exit 1
+            "$PROJECT_HOME"/.tasks/tools/lint-bash install || exit 1
         fi
 
         shift
@@ -41,7 +41,7 @@ case "$1" in
         echo "Shellcheck executable: $( which shellcheck )"
         ;;
 
-    setup)
+    install)
         if [ "$IS_INSTALLED" == "true" ]
         then
             echo "$0: Spellcheck is already installed"
