@@ -1,0 +1,43 @@
+#!/bin/bash
+
+PROJECT_HOME=$( "$( dirname "$0" )/../../../.tasks/project-home" ) || exit 1
+
+cd "$PROJECT_HOME"/containers/ackermann-calc || exit 1
+
+lint_bash () {
+    "$PROJECT_HOME"/.tasks/tools/lint-bash run -e SC1090,SC1091 ./tasks/*
+}
+
+case "$1" in
+    help)
+        echo "Usage: $0 [<command>]"
+        echo "Commands:"
+        echo "  help"
+        echo "    This help page"
+        echo "  run"
+        echo "    Run all lint tasks"
+        echo "  bash"
+        echo "    Run all bash lint tasks"
+        echo "  setup"
+        echo "    Install tooling if not installed"
+        exit 0
+        ;;
+
+    "" | run)
+        lint_bash
+        ;;
+
+    bash)
+        lint_bash
+        ;;
+
+    setup)
+        "$PROJECT_HOME"/.tasks/tools/lint-bash setup
+        ;;
+
+    *)
+        echo "$0: $1: Unknown command"
+        exit 1
+        ;;
+esac
+ 

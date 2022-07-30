@@ -1,0 +1,25 @@
+#!/bin/bash
+
+PROJECT_HOME=$( "$( dirname "$0" )/../.tasks/project-home" ) || exit 1
+
+if [ "$1" == "help" ]
+then
+    echo "Usage: $0 [<command>]"
+    echo "Commands:"
+    echo "  help"
+    echo "    This help page"
+    echo "  run"
+    echo "    Run all tasks"
+    exit 0
+elif [ "$1" != "" ] && [ "$1" != "run" ]
+then
+    echo "Error: $1: Unknown command"
+fi
+
+echo " ===| dev-all: ackermann-calc "
+"$PROJECT_HOME"/containers/ackermann-calc/tasks/dev-all || exit 1
+
+# "$PROJECT_HOME"/containers/factorial-calc/tasks/dev-all || exit 1
+# "$PROJECT_HOME"/containers/fibonacci-calc/tasks/dev-all || exit 1
+# "$PROJECT_HOME"/containers/api/tasks/dev-all || exit 1
+

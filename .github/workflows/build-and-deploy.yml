@@ -67,6 +67,9 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
+      - name: Lint
+        run: ./containers/ackermann-calc/tasks/lint run
+
       - name: Build
         run: |
           cd ./containers/ackermann-calc

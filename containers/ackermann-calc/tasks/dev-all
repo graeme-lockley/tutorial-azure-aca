@@ -1,0 +1,25 @@
+#!/bin/bash
+
+PROJECT_HOME=$( "$( dirname "$0" )/../../../.tasks/project-home" ) || exit 1
+
+if [ "$1" == "help" ]
+then
+    echo "Usage: $0 [<command>]"
+    echo "Commands:"
+    echo "  help"
+    echo "    This help page"
+    echo "  run"
+    echo "    Run all tasks"
+    exit 0
+elif [ "$1" != "" ] && [ "$1" != "run" ]
+then
+    echo "Error: $1: Unknown command"
+fi
+ 
+cd "$PROJECT_HOME"/containers/ackermann-calc || exit 1
+
+echo " ---| Running Lint "
+./tasks/lint run || exit 1
+
+echo " ---| Running Build "
+ ./gradlew build || exit 1
