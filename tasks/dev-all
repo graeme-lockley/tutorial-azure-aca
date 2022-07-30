@@ -19,7 +19,9 @@ fi
 echo "===| dev-all: ackermann-calc "
 "$PROJECT_HOME"/containers/ackermann-calc/tasks/dev-all || exit 1
 
-# "$PROJECT_HOME"/containers/factorial-calc/tasks/dev-all || exit 1
+echo "===| dev-all: factorial-calc "
+"$PROJECT_HOME"/containers/factorial-calc/tasks/dev-all || exit 1
+
 # "$PROJECT_HOME"/containers/fibonacci-calc/tasks/dev-all || exit 1
 
 echo "===| dev-all: api "

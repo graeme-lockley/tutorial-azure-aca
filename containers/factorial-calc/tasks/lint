@@ -1,0 +1,56 @@
+#!/bin/bash
+
+PROJECT_HOME=$( "$( dirname "$0" )/../../../.tasks/project-home" ) || exit 1
+
+cd "$PROJECT_HOME"/containers/factorial-calc || exit 1
+
+lint_bash () {
+    echo "---| lint bash"
+    "$PROJECT_HOME"/.tasks/tools/lint-bash run -e SC1090,SC1091 ./tasks/* || exit 1
+}
+
+lint_deno () {
+    echo "---| lint deno"
+    deno lint || exit 1
+    deno fmt --check || exit 1
+}
+
+case "$1" in
+    help)
+        echo "Usage: $0 [<command>]"
+        echo "Commands:"
+        echo "  help"
+        echo "    This help page"
+        echo "  run"
+        echo "    Run all lint tasks"
+        echo "  bash"
+        echo "    Run all bash lint tasks"
+        echo "  deno"
+        echo "    Run all deno lint tasks"
+        echo "  install"
+        echo "    Install tooling if not installed"
+        exit 0
+        ;;
+
+    "" | run)
+        lint_bash
+        lint_deno
+        ;;
+
+    bash)
+        lint_bash
+        ;;
+
+    deno)
+        lint_deno
+        ;;
+
+    install)
+        "$PROJECT_HOME"/.tasks/tools/lint-bash install
+        ;;
+
+    *)
+        echo "$0: $1: Unknown command"
+        exit 1
+        ;;
+esac
