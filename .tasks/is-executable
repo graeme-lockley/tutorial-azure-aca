@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EXEC_FILE=$( which "$1" )
+EXEC_FILE=$( command -v "$1" )
 
 if [ -f "$EXEC_FILE" ] && [ -x "$EXEC_FILE" ]
 then
