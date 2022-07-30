@@ -2,11 +2,16 @@
 
 PROJECT_HOME=$( "$( dirname "$0" )/../../../.tasks/project-home" ) || exit 1
 
-cd "$PROJECT_HOME"/containers/ackermann-calc || exit 1
+cd "$PROJECT_HOME"/containers/api || exit 1
 
 lint_bash () {
     echo "---| lint bash"
     "$PROJECT_HOME"/.tasks/tools/lint-bash run -e SC1090,SC1091 ./tasks/* || exit 1
+}
+
+lint_javascript () {
+    echo "---| lint javascript"
+    npm run lint || exit 1
 }
 
 case "$1" in
@@ -19,6 +24,8 @@ case "$1" in
         echo "    Run all lint tasks"
         echo "  bash"
         echo "    Run all bash lint tasks"
+        echo "  javascript"
+        echo "    Run all javascript lint tasks"
         echo "  install"
         echo "    Install tooling if not installed"
         exit 0
@@ -26,10 +33,15 @@ case "$1" in
 
     "" | run)
         lint_bash
+        lint_javascript
         ;;
 
     bash)
         lint_bash
+        ;;
+
+    javascript)
+        lint_javascript
         ;;
 
     install)

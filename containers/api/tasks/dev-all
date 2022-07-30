@@ -16,10 +16,10 @@ then
     echo "Error: $1: Unknown command"
 fi
  
-cd "$PROJECT_HOME"/containers/ackermann-calc || exit 1
+cd "$PROJECT_HOME"/containers/api || exit 1
+
+echo "---| Install dependencies "
+npm install
 
 echo "---| Running Lint "
 ./tasks/lint run || exit 1
-
-echo "---| Running Build "
- ./gradlew build || exit 1

@@ -16,10 +16,12 @@ then
     echo "Error: $1: Unknown command"
 fi
 
-echo " ===| dev-all: ackermann-calc "
+echo "===| dev-all: ackermann-calc "
 "$PROJECT_HOME"/containers/ackermann-calc/tasks/dev-all || exit 1
 
 # "$PROJECT_HOME"/containers/factorial-calc/tasks/dev-all || exit 1
 # "$PROJECT_HOME"/containers/fibonacci-calc/tasks/dev-all || exit 1
-# "$PROJECT_HOME"/containers/api/tasks/dev-all || exit 1
+
+echo "===| dev-all: api "
+"$PROJECT_HOME"/containers/api/tasks/dev-all || exit 1
 

@@ -34,10 +34,8 @@ jobs:
           cd ./containers/api
           npm install
 
-      - name: Lint code base
-        run: |
-          cd ./containers/api
-          npm run lint
+      - name: Lint
+        run: ./containers/api/tasks/lint run
 
       - name: Create docker image
         run: ./scripts/api-docker-image.sh
