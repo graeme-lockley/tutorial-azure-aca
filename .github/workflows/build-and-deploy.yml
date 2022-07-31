@@ -125,10 +125,8 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
-      - name: Unit tests
-        run: |
-          cd ./containers/fibonacci-calc/test
-          dotnet test
+      - name: Lint and unit tests
+        run: ./containers/fibonacci-calc/tasks/dev-all
 
       - name: Create docker image
         run: ./scripts/fibonacci-calc-docker-image.sh

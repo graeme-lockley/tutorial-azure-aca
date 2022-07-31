@@ -1,0 +1,27 @@
+#!/bin/bash
+
+PROJECT_HOME=$( "$( dirname "$0" )/../../../.tasks/project-home" ) || exit 1
+
+if [ "$1" == "help" ]
+then
+    echo "Usage: $0 [<command>]"
+    echo "Commands:"
+    echo "  help"
+    echo "    This help page"
+    echo "  run"
+    echo "    Run all tasks"
+    exit 0
+elif [ "$1" != "" ] && [ "$1" != "run" ]
+then
+    echo "$0: $1: Unknown command"
+    exit 1
+fi
+ 
+cd "$PROJECT_HOME"/containers/fibonacci-calc || exit 1
+
+echo "---| Running lint "
+./tasks/lint run || exit 1
+
+echo "---| Running unit tests"
+cd test || exit 1
+dotnet test
