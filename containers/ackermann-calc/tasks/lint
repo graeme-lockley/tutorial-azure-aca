@@ -9,6 +9,11 @@ lint_bash () {
     "$PROJECT_HOME"/.tasks/tools/lint-bash run -e SC1090,SC1091 ./tasks/* || exit 1
 }
 
+lint_dockerfile () {
+    echo "---| lint dockerfile"
+    "$PROJECT_HOME"/.tasks/tools/lint-dockerfile run Dockerfile || exit 1
+}
+
 case "$1" in
     help)
         echo "Usage: $0 [<command>]"
@@ -19,6 +24,8 @@ case "$1" in
         echo "    Run all lint tasks"
         echo "  bash"
         echo "    Run all bash lint tasks"
+        echo "  dockerfile"
+        echo "    Run all dockerfile lint tasks"
         echo "  install"
         echo "    Install tooling if not installed"
         exit 0
@@ -26,10 +33,15 @@ case "$1" in
 
     "" | run)
         lint_bash
+        lint_dockerfile
         ;;
 
     bash)
         lint_bash
+        ;;
+
+    dockerfile)
+        lint_dockerfile
         ;;
 
     install)

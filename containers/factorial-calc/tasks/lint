@@ -15,6 +15,11 @@ lint_deno () {
     deno fmt --check || exit 1
 }
 
+lint_dockerfile () {
+    echo "---| lint dockerfile"
+    "$PROJECT_HOME"/.tasks/tools/lint-dockerfile run Dockerfile || exit 1
+}
+
 case "$1" in
     help)
         echo "Usage: $0 [<command>]"
@@ -27,6 +32,8 @@ case "$1" in
         echo "    Run all bash lint tasks"
         echo "  deno"
         echo "    Run all deno lint tasks"
+        echo "  dockerfile"
+        echo "    Run all dockerfile lint tasks"
         echo "  install"
         echo "    Install tooling if not installed"
         exit 0
@@ -35,6 +42,7 @@ case "$1" in
     "" | run)
         lint_bash
         lint_deno
+        lint_dockerfile
         ;;
 
     bash)
@@ -43,6 +51,10 @@ case "$1" in
 
     deno)
         lint_deno
+        ;;
+
+    dockerfile)
+        lint_dockerfile
         ;;
 
     install)
