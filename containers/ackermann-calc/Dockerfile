@@ -6,13 +6,13 @@ RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM eclipse-temurin:18-jre
 WORKDIR /usr/app
-COPY --from=builder application/dependencies/ ./
+COPY --from=builder /usr/app/dependencies/ ./
 RUN true
-COPY --from=builder application/spring-boot-loader/ ./
+COPY --from=builder /usr/app/spring-boot-loader/ ./
 RUN true
-COPY --from=builder application/snapshot-dependencies/ ./
+COPY --from=builder /usr/app/snapshot-dependencies/ ./
 RUN true
-COPY --from=builder application/application/ ./
+COPY --from=builder /usr/app/application/ ./
 RUN true
 
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
