@@ -31,7 +31,7 @@ In reshaping this solution I think there are a number of considerations.
 
 Something needs to sit at the top-level of a code base.  In a single container application the container would be at the top-level however, in a multi-container solution, the top-level is the system.  Therefore, the top-level here would start off with
 
-```
+```text
 ...
 containers/
     ackermann-calc
@@ -43,7 +43,7 @@ containers/
 
 Added to this would be the odds-and-sods that are present in every solution - a collection of dotfiles, readme and license.  Updating we then get
 
-```
+```text
 ...
 .devcontainer/
 .github/
@@ -68,7 +68,7 @@ Given the above there are still a handful of capabilities that still need to be 
 - The system's infrastructure setup in its various guises.
 - Documentation that is pertinent to the entire system.
 
-```
+```text
 .devcontainer/
 .github/
 .vscode/

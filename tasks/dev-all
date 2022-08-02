@@ -28,3 +28,5 @@ echo "===| dev-all: fibonacci-calc "
 echo "===| dev-all: api "
 "$PROJECT_HOME"/containers/api/tasks/dev-all || exit 1
 
+echo "===| dev-all top-level"
+"$PROJECT_HOME"/tasks/lint || exit 1
