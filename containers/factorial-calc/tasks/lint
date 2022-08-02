@@ -59,6 +59,8 @@ case "$1" in
 
     install)
         "$PROJECT_HOME"/.tasks/tools/lint-bash install
+        "$PROJECT_HOME"/.tasks/tools/lint-deno install
+        "$PROJECT_HOME"/.tasks/tools/lint-dockerfile install
         ;;
 
     *)
