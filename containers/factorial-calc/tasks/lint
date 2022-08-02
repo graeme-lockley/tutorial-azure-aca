@@ -11,8 +11,8 @@ lint_bash () {
 
 lint_deno () {
     echo "---| lint deno"
-    deno lint || exit 1
-    deno fmt --check || exit 1
+    "$PROJECT_HOME"/.tasks/tools/deno run lint || exit 1
+    "$PROJECT_HOME"/.tasks/tools/deno run fmt --check || exit 1
 }
 
 lint_dockerfile () {

@@ -50,7 +50,7 @@ case "$1" in
         else
             case $( uname -s ) in
                 Darwin)
-                    "$PROJECT_HOME"/.tasks/tools/homebrew verify || exit 1
+                    "$PROJECT_HOME"/.tasks/tools/lint-dockerfile verify || exit 1
                     brew install "$LINT_COMMAND" || exit 1
                     ;;
 

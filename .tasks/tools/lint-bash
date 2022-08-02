@@ -48,7 +48,7 @@ case "$1" in
         else
             case $( uname -s ) in
                 Darwin)
-                    "$PROJECT_HOME"/.tasks/tools/homebrew verify || exit 1
+                    "$PROJECT_HOME"/.tasks/tools/lint-bash verify || exit 1
                     brew install shellcheck || exit 1
                     ;;
 

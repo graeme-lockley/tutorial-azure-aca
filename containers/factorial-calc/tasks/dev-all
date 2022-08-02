@@ -19,10 +19,10 @@ fi
 cd "$PROJECT_HOME"/containers/factorial-calc || exit 1
 
 echo "---| Install dependencies "
-deno cache api.ts
+"$PROJECT_HOME"/.tasks/tools/deno run cache api.ts
 
 echo "---| Running lint "
 ./tasks/lint run || exit 1
 
 echo "---| Running unit tests"
-deno test || exit 1
+"$PROJECT_HOME"/.tasks/tools/deno run test || exit 1
