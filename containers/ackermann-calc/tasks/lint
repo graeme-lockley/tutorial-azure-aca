@@ -14,6 +14,11 @@ lint_dockerfile () {
     "$PROJECT_HOME"/.tasks/tools/lint-dockerfile run Dockerfile || exit 1
 }
 
+lint_java () {
+    echo "---| lint java"
+    ./gradlew check
+}
+
 case "$1" in
     help)
         echo "Usage: $0 [<command>]"
@@ -26,6 +31,8 @@ case "$1" in
         echo "    Run all bash lint tasks"
         echo "  dockerfile"
         echo "    Run all dockerfile lint tasks"
+        echo "  java"
+        echo "    Run all java lint tasks"
         echo "  install"
         echo "    Install tooling if not installed"
         exit 0
@@ -34,6 +41,7 @@ case "$1" in
     "" | run)
         lint_bash
         lint_dockerfile
+        lint_java
         ;;
 
     bash)
@@ -42,6 +50,10 @@ case "$1" in
 
     dockerfile)
         lint_dockerfile
+        ;;
+
+    java)
+        lint_java
         ;;
 
     install)
