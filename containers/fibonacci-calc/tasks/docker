@@ -1,0 +1,50 @@
+#!/bin/bash
+
+PROJECT_HOME=$( "$( dirname "$0" )/../../../.tasks/project-home" ) || exit 1
+IMAGE_NAME=graemel/tutorial-azure-aca-fibonacci-calc
+
+cd "$PROJECT_HOME"/containers/ackermann-calc || exit 1
+
+docker_build () {
+    echo "---| docker build"
+    docker build . -t "$IMAGE_NAME" || exit 1
+}
+
+docker_publish () {
+    echo "---| docker publish"
+    docker push "$IMAGE_NAME" || exit 1
+}
+
+case "$1" in
+    help)
+        echo "Usage: $0 [<command>]"
+        echo "Commands:"
+        echo "  help"
+        echo "    This help page"
+        echo "  run"
+        echo "    Build and publish a docker image"
+        echo "  build"
+        echo "    Build a docker image"
+        echo "  publish"
+        echo "    Publish a docker image"
+        exit 0
+        ;;
+
+    "" | run)
+        docker_build
+        docker_publish
+        ;;
+
+    build)
+        docker_build
+        ;;
+
+    publish)
+        docker_publish
+        ;;
+
+    *)
+        echo "$0: $1: Unknown command"
+        exit 1
+        ;;
+esac
