@@ -3,7 +3,7 @@
 PROJECT_HOME=$( "$( dirname "$0" )/../../../.tasks/project-home" ) || exit 1
 IMAGE_NAME=graemel/tutorial-azure-aca-fibonacci-calc
 
-cd "$PROJECT_HOME"/containers/ackermann-calc || exit 1
+cd "$PROJECT_HOME"/containers/fibonacci-calc || exit 1
 
 docker_build () {
     echo "---| docker build"
