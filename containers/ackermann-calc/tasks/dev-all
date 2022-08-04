@@ -23,3 +23,6 @@ echo "---| Running Lint "
 
 echo "---| Running Build "
  ./gradlew build || exit 1
+
+ echo "---| Build and publish docker images"
+./tasks/docker run || exit 1

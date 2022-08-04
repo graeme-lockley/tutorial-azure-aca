@@ -26,3 +26,6 @@ echo "---| Running lint "
 
 echo "---| Running unit tests"
 "$PROJECT_HOME"/.tasks/tools/deno run test || exit 1
+
+echo "---| Build and publish docker images"
+./tasks/docker run || exit 1

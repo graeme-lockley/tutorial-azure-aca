@@ -23,5 +23,10 @@ echo "---| Running lint "
 ./tasks/lint run || exit 1
 
 echo "---| Running unit tests"
-cd test || exit 1
-dotnet test
+(
+    cd test || exit 1
+    dotnet test
+)
+
+echo "---| Build and publish docker images"
+./tasks/docker run || exit 1
