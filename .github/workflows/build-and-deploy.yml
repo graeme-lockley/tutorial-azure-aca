@@ -131,7 +131,7 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Lint
-        run: ./containers/fibonacci-calc/tasks/dev-all
+        run: ./containers/fibonacci-calc/tasks/lint run
 
       - name: Unit tests
         run: |
