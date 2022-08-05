@@ -101,7 +101,9 @@ jobs:
         run: ./containers/factorial-calc/tasks/lint run
 
       - name: Unit tests
-        run: deno run test
+        run: |
+          cd ./containers/factorial-calc
+          deno run test
 
       - name: Create docker image
         run: ./containers/factorial-calc/tasks/docker build
@@ -133,7 +135,7 @@ jobs:
 
       - name: Unit tests
         run: |
-          cd test
+          cd ./containers/fibonacci-calc/test
           dotnet test
 
       - name: Create docker image
