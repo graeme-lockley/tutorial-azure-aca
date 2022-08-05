@@ -97,8 +97,11 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Lint and unit tests
-        run: ./containers/factorial-calc/tasks/dev-all
+      - name: Lint
+        run: ./containers/factorial-calc/tasks/lint run
+
+      - name: Unit tests
+        run: deno run test
 
       - name: Create docker image
         run: ./containers/factorial-calc/tasks/docker build
@@ -125,8 +128,13 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
-      - name: Lint and unit tests
+      - name: Lint
         run: ./containers/fibonacci-calc/tasks/dev-all
+
+      - name: Unit tests
+        run: |
+          cd test
+          dotnet test
 
       - name: Create docker image
         run: ./containers/fibonacci-calc/tasks/docker build
