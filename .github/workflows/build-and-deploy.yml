@@ -103,7 +103,7 @@ jobs:
       - name: Unit tests
         run: |
           cd ./containers/factorial-calc
-          deno run test
+          ./.tasks/tools/deno run test
 
       - name: Create docker image
         run: ./containers/factorial-calc/tasks/docker build
