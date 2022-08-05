@@ -159,7 +159,7 @@ jobs:
           echo "PRINCIPAL_ID=$PRINCIPAL_ID" >> $GITHUB_ENV
 
       - name: Setup environment
-        run: ./scripts/configure-environment.sh
+        run: ./tasks/configure-environment
 
       - name: Commit log
         if: always()

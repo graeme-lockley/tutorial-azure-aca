@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+PROJECT_HOME=$( "$( dirname "$0" )/../.tasks/project-home" ) || exit 1
+
+cd "$PROJECT_HOME"/src/infra || exit 1
+"$PROJECT_HOME"/.tasks/infra-runner up
