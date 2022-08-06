@@ -2,7 +2,7 @@
 
 A tutorial in deploying an Azure container app in a multitude of languages.
 
-I have wanted to make this tutorial a little more useful for me in that I am combining multiple containers and multiple languages into this solution.
+I have wanted to make this tutorial a little more useful for me by combining multiple containers and multiple languages into this solution.
 
 ## Context
 
